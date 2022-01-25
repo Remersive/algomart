@@ -36,7 +36,9 @@ export default class AlgorandAdapter {
 
   constructor(options: AlgorandAdapterOptions) {
     this.algod = new algosdk.Algodv2(
-      { 'X-Algo-API-Token': options.algodToken },
+      {
+        [process.env.ALGOD_TOKEN_KEY || 'X-Algo-API-Token']: options.algodToken,
+      },
       options.algodServer,
       options.algodPort
     )

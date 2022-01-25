@@ -9,7 +9,11 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "start": "nx run-many --target=serve --projects=api,cms,web --parallel",
+    "start": "bash ./start.sh",
+    "api": "nx run api:serve",
+    "cms": "nx run cms:serve",
+    "web": "nx run web:serve",
+    "all": "nx run-many --target=serve --projects=api,cms,web --parallel",
     "build": "nx run-many --target=build --all",
     "test": "nx run-many --target=test --all",
     "lint": "nx run-many --target=lint --all",
